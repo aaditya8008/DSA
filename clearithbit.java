@@ -1,15 +1,11 @@
 import java.util.*;
 
-public class rogh{     
+public class clearithbit{     //1=0,0=1 
      public static int clear(int n){
-        int count=0;
-       while(n!=0){
-       if((n&(1<<0))!=0)
-       count++;
-
-       n=n>>1;
-       }
-return count;                 //even&previousodd==0
+        Scanner sc=new Scanner(System.in);  
+        int i=sc.nextInt();
+        
+        return (n&(~(1<<i)));
      }
     public static void main(String args[]){
         int n;

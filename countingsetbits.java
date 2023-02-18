@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class rogh{     
+public class countingsetbits{     
      public static int clear(int n){
         int count=0;
        while(n!=0){
