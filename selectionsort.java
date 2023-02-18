@@ -1,5 +1,5 @@
 import java.util.*;
-public class rogh{
+public class selectionsort{
     public static void insertationsort(int arr[],int n){
         int min;
         for(int i=0;i<arr.length-1;i++){
