@@ -1,6 +1,6 @@
- import java.util.*;        //interfaces->class->objects(class.c1)
+import java.util.*;        //interfaces->class->objects(class.c1)
 
-public class rogh{    
+public class interfaces{    
     public static void main(String args[]){
    queen q=new queen();
    king k=new king();
