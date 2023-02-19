@@ -1,11 +1,12 @@
- import java.util.*;
- public class rogh{
+import java.util.*;
+ public class sumrc{
   public static int disp(int n){
-   
-
-    if(n==1||n==0)
+    if(n==0)
     return 1;
-    return(disp(n-1)+disp(n-2));
+    if(n==1)
+    return 1;
+    
+    return(n+disp(n-1));
     
   }
 public static void main(String args[]){
