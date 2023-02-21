@@ -5,12 +5,10 @@ public class hierchicalinheritence{
 
       human h1=new human();
       fish f1=new fish();
-      tuna t1=new tuna();
       h1.eat();
       h1.speak();
       f1.eat();
       f1.swims();
-      t1.iam();
 
 }}
 class animal{                //base class
@@ -34,10 +32,5 @@ void swims(){
 class human extends animal{
     void speak(){
         System.out.println("Speak\n");
-    }
-}
-class tuna extends fish{              //hybrid
-    void iam(){
-        System.out.println("Tuna\n");
     }
 }

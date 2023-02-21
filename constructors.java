@@ -10,7 +10,7 @@ public class constructors{
 class Student{
 String name;
 int roll;
-Student(String name){                                    //constructer call
+Student(String name){                  //parametrized constructor                                  //constructer call
 this.name=name;
 
 

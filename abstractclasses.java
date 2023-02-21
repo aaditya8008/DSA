@@ -2,36 +2,41 @@ import java.util.*;
 
 public class abstractclasses{    
     public static void main(String args[]){
-    mustang m=new mustang();
-    //Animal->Horse->Mustang
-    }}
-abstract class animal{   
+      
+      horse h=new horse();
+      h.eat();
+      h.walk();
+      chicken c=new chicken();
+      c.eat();
+      c.walk();
+      System.out.println(h.color);     //by default brown will be set by animal() constructer
+                   //parent constructor called first by default
+
+
+h.changecolor();     //changed
+c.changecolor();
+                   System.out.println(h.color);  
+      System.out.println(c.color);                           }}
+abstract class animal{             //can't be used by own    
     String color;
     animal(){                      //constructer
-        System.out.println("Animal constructer called");  
+        color="brown";
     }
     void eat(){
         System.out.println("Eats\n");
 
     }
-    abstract void walk();}    
+    abstract void walk();                //only gives function
 
-
-    class horse extends animal{
-        horse(){                   //constructer
-        System.out.println("Horse constructer called");  }
-        void changecolor(){
+}     
+    class horse extends animal{          //abstract method will be implemented here compulsary
+       void changecolor(){
         color="dark brown";
        }
         void walk(){
             System.out.println("walks on 4 legs\n");
         }}
-
-
-
-        class mustang extends horse{
-            mustang(){                 //constructer
-                System.out.println("Mustang constructer called");  }
+        class chicken extends animal{
             void changecolor(){
                 color="yellow";
                }

@@ -11,7 +11,7 @@ public class constructor2{
     class Student{
     String name;
     int roll;
-    Student(){                                    //constructer call
+    Student(){                //non parametrized constructor                     //constructer call
         System.out.println("Constructor is called..!");
     
     
