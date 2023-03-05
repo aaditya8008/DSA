@@ -4,7 +4,7 @@ import javax.print.attribute.standard.PageRanges;
  public class optimizedpowrec{
   public static int power(int x,int n){
     if(n==0)
-    return x;
+    return n;
     int halfpower=power(x,n/2); 
     int halfpwsq=halfpower*halfpower;
     if(n%2!=0)

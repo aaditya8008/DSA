@@ -1,18 +1,15 @@
 import java.util.*;
 public class rogh{
- public static int totalways(int n){
-   if(n==1||n==2)
-   return n;
-  int v=totalways(n-1);
-  int h=totalways(n-2);
-return (v*((n-1)*h));
-
- }
-public static void main(String args[]){
-int n;
-Scanner sc=new Scanner(System.in);
-System.out.println("Enter number: ");
-n=sc.nextInt();
-System.out.println("Ways = "+totalways(n));
-}}
-
+    public static void main(String[] args) { 
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int a[]=new int[n];
+        for(int i=0;i<n;i++){
+            a[i]=sc.nextInt();
+        }
+        Arrays.sort(a);
+        for(int i=0;i<n;i++){
+            System.out.print(a[i]+" ");
+        }
+    
+}
