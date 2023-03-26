@@ -1,17 +1,22 @@
 import java.util.*;
 public class rogh{
 public static void main(String args[]){
-Scanner sc=new Scanner(System.in);
-System.out.print("Enter Num :\n");
-int x=sc.nextInt();
-int y=sc.nextInt();
-int count=0;
-while(x>0){
-    if(((x)&1)!=0)
-    count++;
-     x=x>>1;
+student s1=new student();
+System.out.println(s1.schooln);
+s1.schooln="XYZ";
+student s2=new student ();
+System.out.println(s2.schooln);
 }
-System.out.println(count);
+}
+class student{
+String name;
+int roll;
+static String schooln="Rancho";
+void setname(String name){
+    this.name=name;
+}
+String getname(){
+    return this.name;
+}
 
-}
 }
