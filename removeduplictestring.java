@@ -1,5 +1,5 @@
 import java.util.*;
-public class rogh{
+public class removeduplictestring{
     
     public static StringBuilder print(String str,int i,StringBuilder newstr,boolean map[]){
         if(i==str.length())
