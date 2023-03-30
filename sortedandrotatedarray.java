@@ -1,12 +1,5 @@
-
 import java.util.*;
-public class rogh{
-public static void  print(int arr[]){
-        System.out.println("Sorted elements are :");
-        for(int i=0;i<arr.length;i++){
-            System.out.println(arr[i]);}}
-
-
+public class sortedandrotatedarray{
             public static int search(int arr[],int t,int s,int e){
           if(s>e)
           return -1;    //base case
