@@ -1,66 +1,81 @@
 
 import java.util.*;
 public class rogh{
-public static void  print(int arr[]){
-        System.out.println("Sorted elements are :");
-        for(int i=0;i<arr.length;i++){
-            System.out.println(arr[i]);}}
-
-
-            public static int search(int arr[],int t,int s,int e){
-          if(s>e)
-          return -1;    //base case
-
-                int mid=s+(e-s)/2;
-                if(arr[mid]==t){
-                    return mid;
-                }
-                //mid on L1 side
-                if(arr[s]<=arr[mid]){
-                //for left side
-                if(arr[s]<=t&&t<=arr[mid]){
-                return search(arr,t,s,mid-1);      //e = mid-1
-                }
-                //for roght
-                else{
-                    return search(arr,t,mid+1,e); //s=mid+1
-                }
-
-                }
-
-                //mid on L2 side
-                else{
-                    //for roght 
-                 if(arr[mid]<=t&&t<=arr[e]){
-                    return search(arr,t,mid+1,e);
-                 }
-                 else{
-                    //for left
-                    return search(arr,t,s,mid-1);
-                 }
-
-                }
-
+    public static boolean issafe(int board[][],int r,int c,int digit){
+        //column
+        for(int i=0;i<=8;i++){
+            if(board[i][c]==digit){
+                return false;
             }
+        }
+        //row
+        for(int j=0;j<=8;j++){
+            if(board[r][j]==digit){
+                return false;
+            }
+        }
+        //grid
+        int sr=(r/3)*3;
+        int sc=(c/3)*3;
+        for(int i=sr;i<sr+3;i++){
+            for(int j=sc;j<sc+3;j++){
+               if(board[i][j]==digit) 
+               return false;
+            }
+        }
+        return true;
+    }
+    public static boolean sudoku(int board[][],int r,int c){
+        //basecase
+        if(r==9&&c==9)
+        return true;
+        else if(r==9)
+        return false;
+        
+        //recursion
+        int nextrow=r,nextcol=c=1;
+        if(c+1==9){
+         nextrow=r+1;
+         nextcol=0;
 
-
-public static void main(String args[]){
-int size;
-Scanner sc=new Scanner(System.in);
-System.out.println("SIZE :");
-size=sc.nextInt();
-int arr[]=new int[size];
-
-System.out.println("ELEMENTS :");
-for(int i=0;i<arr.length;i++){
-    arr[i]=sc.nextInt();
+        }
+        if(board[r][c]!=0){
+           return  sudoku(board,nextrow,nextcol);
+        }
+      for(int i=1;i<=9;i++){
+if(issafe(board,r,c,i)){
+board[r][c]=i;
+if(sudoku(board,nextrow,nextcol))
+return true;
 }
-int target=0;         //  o/p= index of 0
-int taridx=search(arr,target,0,arr.length-1);
-System.out.println("Index is :");
-System.out.println(taridx);
+board[r][c]=0;
+      }
+      return false;
+    }
+    public static void printsudoku(int board[][]){
+for(int i=0;i<9;i++){
+    for(int j=0;j<9;j++){
+        System.out.println(board[i][j]+" ");
+    }
+    System.out.println();
 }
-
+    }
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+    System.out.println("Enter size :");
+    int n=sc.nextInt();
+    int board[][]=new int[n][n];
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+        board[i][j]=sc.nextInt();
+        }
+        
+    }
+    if(sudoku(board,0,0)){
+        System.out.println("Solution exists");
+        printsudoku(board);
+    }
+else{
+    System.out.println("Solution doesn't exists");
 }
-
-
+}}
