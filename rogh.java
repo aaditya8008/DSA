@@ -1,49 +1,18 @@
 import java.util.*;
 public class rogh{
-    public static boolean pairsum(ArrayList<Integer> list){
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Enter Target:");
-        int target =sc.nextInt();
-        int n=list.size();
-        
-        int bp=-1;         //breaking point
-        for(int i=0;i<list.size();i++){
-
-            if(list.get(i)>list.get(i+1)){
-                bp=i;
-                break;
-            }
+    public static class node{
+        int data;
+        node next;
+        public node(int data){
+            this.data=data;
+           this. next=null;
         }
-        int left=bp+1; //smallest
-        int right=bp;  //largest
-while(left!=right){
-int sum=list.get(left)+list.get(right);
-if(sum==target)
-return true;
-
-else if(sum>target)
-right=(n+right-1)%n;
-else
-left=(left+1)%n;
-
-
-
-
-
-}
-return false;
     }
-    
+    public static node head;
+    public static node tail;
 public static void main(String args[]){
 Scanner sc=new Scanner(System.in);
-System.out.println("Enter size:");
-int x=sc.nextInt();
-ArrayList<Integer> list=new ArrayList<>();
-System.out.println("Enter Data:");
-for(int i=0;i<x;i++){
-    list.add(sc.nextInt());
-}
-System.out.println(pairsum(list));
+rogh ll=new rogh()
 
 }
 }
