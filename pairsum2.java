@@ -1,6 +1,6 @@
 import java.util.*;
 public class rogh{
-    public static boolean pairsum(ArrayList<Integer> list){
+    public static boolean pairsum2(ArrayList<Integer> list){
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter Target:");
         int target =sc.nextInt();
@@ -21,12 +21,10 @@ int sum=list.get(left)+list.get(right);
 if(sum==target)
 return true;
 
-else if(sum>target)
-right=(n+right-1)%n;
-else
+else if(sum<target)
 left=(left+1)%n;
-
-
+else
+right=(n+right-1)%n;
 
 
 

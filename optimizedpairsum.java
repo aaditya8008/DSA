@@ -1,34 +1,20 @@
 import java.util.*;
-public class rogh{
+public class optimizedpairsum{
     public static boolean pairsum(ArrayList<Integer> list){
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter Target:");
         int target =sc.nextInt();
-        int n=list.size();
-        
-        int bp=-1;         //breaking point
-        for(int i=0;i<list.size();i++){
-
-            if(list.get(i)>list.get(i+1)){
-                bp=i;
-                break;
-            }
-        }
-        int left=bp+1; //smallest
-        int right=bp;  //largest
-while(left!=right){
+        int left=0;
+        int right=list.size()-1;
+while(left<right){
 int sum=list.get(left)+list.get(right);
 if(sum==target)
 return true;
 
 else if(sum>target)
-right=(n+right-1)%n;
+right--;
 else
-left=(left+1)%n;
-
-
-
-
+left++;
 
 }
 return false;
