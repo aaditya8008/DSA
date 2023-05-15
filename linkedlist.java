@@ -24,6 +24,16 @@ n.next=head;
 head=n;
 
     }
+    public static void addlast(int data){
+node n=new node(data);
+if(head==null){
+    
+}
+tail=n;
+tail.next=n;
+
+
+    }
 public static void main(String args[]){
 Scanner sc=new Scanner(System.in);
 System.out.println("Enter size :");
@@ -35,6 +45,7 @@ for(int i=0;i<size;i++){
 addfirst(data);
 
 }
+addlast(8);
 while(head!=null){
     System.out.println(head.data);
     head=head.next;
