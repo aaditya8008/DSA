@@ -1,1 +1,1 @@
-stem.out.println(s);
+i+1)%arr.length
