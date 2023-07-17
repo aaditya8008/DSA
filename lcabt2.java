@@ -1,8 +1,6 @@
 import java.util.*;
 
-import java.util.*;
-
-public class rogh {
+public class lcabt2 {
 
     static class node {
         int data;
@@ -27,28 +25,21 @@ public class rogh {
             return newnode;
         }
 
-        static void prefix(node root) {
-            if (root == null) {
-                return;
-            }
-            System.out.println(root.data);
-            prefix(root.left);
-            prefix(root.right);
+    }
 
+    static node lca(node root, int n1, int n2) {
+        if (root == null)
+            return null;
+        if (root.data == n1 || root.data == n2) {
+            return root;
         }
-
-        public static void kthnode(node root,int level,int k){
-          if(root==null)
-          return;
-          if(level==k){
-            System.out.println("Data :"+root.data);
-          }
-          kthnode(root.left, level, k+1);
-          kthnode(root.right, level, k+1);
-
-
-        }
-        
+        node left = lca(root.left, n1, n2);
+        node right = lca(root.right, n1, n2);
+        if (right == null)
+            return left;
+        if (left == null)
+            return right;
+        return root;
     }
 
     public static void main(String args[]) {
@@ -62,9 +53,10 @@ public class rogh {
 
         binarytree tree = new binarytree();
         node n = root;
-        tree.prefix(n);
+
         n = root;
-        tree.kthnode(root, 2, 1);
+        int n1 = 4, n2 = 7;
+        System.out.println(lca(n, n1, n2).data);
     }
 
 }

@@ -1,8 +1,6 @@
 import java.util.*;
 
-import java.util.*;
-
-public class rogh {
+public class kthancestor {
 
     static class node {
         int data;
@@ -27,30 +25,29 @@ public class rogh {
             return newnode;
         }
 
-        static void prefix(node root) {
-            if (root == null) {
-                return;
-            }
-            System.out.println(root.data);
-            prefix(root.left);
-            prefix(root.right);
-
-        }
-
-        public static void kthnode(node root,int level,int k){
-          if(root==null)
-          return;
-          if(level==k){
-            System.out.println("Data :"+root.data);
-          }
-          kthnode(root.left, level, k+1);
-          kthnode(root.right, level, k+1);
-
-
-        }
-        
     }
 
+    
+
+    public static int kancestor(node root, int n,int k) {
+
+        if (root == null)
+            return -1;
+        if (root.data == n)
+            return 0;
+        int left = kancestor(root.left, n,k);
+        int right = kancestor(root.right, n,k);
+        if (left == -1 && right == -1)
+            return -1;
+        int max=Math.max(left,right);
+        if(max+1==k){
+            System.out.println(root.data);
+        }
+        return max+1;
+
+    }
+
+   
     public static void main(String args[]) {
         node root = new node(1);
         root.left = new node(2);
@@ -61,10 +58,9 @@ public class rogh {
         root.right.right = new node(7);
 
         binarytree tree = new binarytree();
-        node n = root;
-        tree.prefix(n);
-        n = root;
-        tree.kthnode(root, 2, 1);
+        
+        int n = 5 ;
+      kancestor(root, n, 2);
     }
 
 }

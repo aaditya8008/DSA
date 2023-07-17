@@ -1,8 +1,6 @@
 import java.util.*;
 
-import java.util.*;
-
-public class rogh {
+public class kthnode {
 
     static class node {
         int data;
@@ -37,18 +35,23 @@ public class rogh {
 
         }
 
-        public static void kthnode(node root,int level,int k){
-          if(root==null)
-          return;
-          if(level==k){
-            System.out.println("Data :"+root.data);
-          }
-          kthnode(root.left, level, k+1);
-          kthnode(root.right, level, k+1);
+        static void kthroot(node root, int k, int level) {
+            if (root == null) {
+                System.out.println("Not Found");
+                return;
+            }
 
+            if (level == k) {
+                System.out.println("Found");
+                System.out.println(root.data);
+                return;
+            }
+
+            kthroot(root.left, k, level + 1);
+            kthroot(root.right, k, level + 1);
 
         }
-        
+
     }
 
     public static void main(String args[]) {
@@ -64,7 +67,7 @@ public class rogh {
         node n = root;
         tree.prefix(n);
         n = root;
-        tree.kthnode(root, 2, 1);
+        tree.kthroot(root, 2, 1);
     }
 
 }

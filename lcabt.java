@@ -1,8 +1,6 @@
 import java.util.*;
 
-import java.util.*;
-
-public class rogh {
+public class lcabt {
 
     static class node {
         int data;
@@ -27,29 +25,41 @@ public class rogh {
             return newnode;
         }
 
-        static void prefix(node root) {
-            if (root == null) {
-                return;
-            }
-            System.out.println(root.data);
-            prefix(root.left);
-            prefix(root.right);
+      
 
-        }
+      
 
-        public static void kthnode(node root,int level,int k){
-          if(root==null)
-          return;
-          if(level==k){
-            System.out.println("Data :"+root.data);
-          }
-          kthnode(root.left, level, k+1);
-          kthnode(root.right, level, k+1);
-
-
-        }
-        
+     
     }
+    static boolean getpath(node root,int n,ArrayList<node> path){
+            if(root==null)
+            return false;
+            path.add(root);
+            if(root.data==n)
+            return true;
+boolean left=getpath(root.left ,n,path);
+boolean rigth=getpath(root.right,n,path);
+
+if(left||right)
+return true;
+path.remove(path.size()-1);
+return false;
+         }
+      static node lca(node root,int n1,int n2){
+ArrayList <node> path1 =new ArrayList<>();
+ArrayList <node> path2 =new ArrayList<>();
+getpath(root,n1,path1);
+getpath(root,n2,path2);
+int i=0;
+for(i=0;i<path1.size()&&i<path2.size();i++)
+{
+    if(path1.get(i)!=path2.get(i))
+    break;
+}
+node lca=path1.get(i-1);
+return lca;
+
+        }
 
     public static void main(String args[]) {
         node root = new node(1);
@@ -62,9 +72,10 @@ public class rogh {
 
         binarytree tree = new binarytree();
         node n = root;
-        tree.prefix(n);
+       
         n = root;
-        tree.kthnode(root, 2, 1);
+        int n1=4,n2=5;
+        System.out.println(lca(n,n1,n2).data);
     }
 
 }

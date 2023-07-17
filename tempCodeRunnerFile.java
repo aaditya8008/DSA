@@ -1,1 +1,1 @@
-i+1)%arr.length
+ path.add(root);
