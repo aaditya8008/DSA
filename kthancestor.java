@@ -27,27 +27,24 @@ public class kthancestor {
 
     }
 
-    
-
-    public static int kancestor(node root, int n,int k) {
+    public static int kancestor(node root, int n, int k) {
 
         if (root == null)
             return -1;
         if (root.data == n)
             return 0;
-        int left = kancestor(root.left, n,k);
-        int right = kancestor(root.right, n,k);
+        int left = kancestor(root.left, n, k);
+        int right = kancestor(root.right, n, k);
         if (left == -1 && right == -1)
             return -1;
-        int max=Math.max(left,right);
-        if(max+1==k){
+        int max = Math.max(left, right);
+        if (max + 1 == k) {
             System.out.println(root.data);
         }
-        return max+1;
+        return max + 1;
 
     }
 
-   
     public static void main(String args[]) {
         node root = new node(1);
         root.left = new node(2);
@@ -58,9 +55,9 @@ public class kthancestor {
         root.right.right = new node(7);
 
         binarytree tree = new binarytree();
-        
-        int n = 5 ;
-      kancestor(root, n, 2);
+
+        int n = 5;
+        kancestor(root, n, 2);
     }
 
 }

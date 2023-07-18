@@ -1,1 +1,1 @@
- path.add(root);
+root
