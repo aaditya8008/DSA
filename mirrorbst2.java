@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class roottoleaf {
+public class mirrorbst2 {
 
     static class node {
         int data;
@@ -47,18 +47,15 @@ public class roottoleaf {
 
     }
 
-    public static void printrootleaf(node root,ArrayList<Integer> path){
-        if(root ==null)
-        return ;
-        path.add(root.data);
-        if(root.left==null&&root.right==null){
-           System.out.println(path); 
-        }
-printrootleaf(root.left,path);
-printrootleaf(root.right,path);
-path.remove(path.size()-1);
+    public static node mirror(node root) {
+        if (root == null)
+            return null;
 
-
+        node left = mirror(root.left);
+        node right = mirror(root.right);
+        root.left = right;
+        root.right = left;
+        return root;
     }
 
     public static void inorder(node root) {
@@ -83,8 +80,10 @@ path.remove(path.size()-1);
         inorder(n);
 
         n = root;
-        ArrayList<Integer> path=new ArrayList<>();
-        printrootleaf(root,path);
+
+        mirror(root);
+        System.out.println("MIrror :");
+        inorder(root);
     }
 
 }

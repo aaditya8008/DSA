@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class roottoleaf {
+public class arraybalancedbst {
 
     static class node {
         int data;
@@ -47,18 +47,16 @@ public class roottoleaf {
 
     }
 
-    public static void printrootleaf(node root,ArrayList<Integer> path){
-        if(root ==null)
-        return ;
-        path.add(root.data);
-        if(root.left==null&&root.right==null){
-           System.out.println(path); 
-        }
-printrootleaf(root.left,path);
-printrootleaf(root.right,path);
-path.remove(path.size()-1);
+    public static node createtree(int arr[], int s, int e) {
+        if (s > e)
+            return null;
 
+        int mid = (s + e) / 2;
+        node root = new node(arr[mid]);
+        root.left = createtree(arr, s, mid - 1);
+        root.right = createtree(arr, mid + 1, e);
 
+        return root;
     }
 
     public static void inorder(node root) {
@@ -71,20 +69,11 @@ path.remove(path.size()-1);
     }
 
     public static void main(String args[]) {
-        node root = new node(4);
-        root.left = new node(2);
-        root.right = new node(5);
-        root.left.left = new node(1);
-        root.left.right = new node(3);
-        root.right.right = new node(6);
+        int arr[] = { 3, 5, 6, 8, 10, 11, 12 };
 
-        binarytree tree = new binarytree();
-        node n = root;
-        inorder(n);
+        node root = createtree(arr, 0, arr.length - 1);
+        inorder(root);
 
-        n = root;
-        ArrayList<Integer> path=new ArrayList<>();
-        printrootleaf(root,path);
     }
 
 }

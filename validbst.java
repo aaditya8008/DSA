@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class roottoleaf {
+public class validbst {
 
     static class node {
         int data;
@@ -47,17 +47,16 @@ public class roottoleaf {
 
     }
 
-    public static void printrootleaf(node root,ArrayList<Integer> path){
-        if(root ==null)
-        return ;
-        path.add(root.data);
-        if(root.left==null&&root.right==null){
-           System.out.println(path); 
+    public static boolean validbst(node root, node min, node max) {
+        if (root == null)
+            return true;
+        if (min != null && root.data <= min.data) {
+            return false;
+        } else if (max != null && root.data >= max.data) {
+            return false;
         }
-printrootleaf(root.left,path);
-printrootleaf(root.right,path);
-path.remove(path.size()-1);
 
+        return validbst(root.left, min, root) && validbst(root.right, root, max);
 
     }
 
@@ -83,8 +82,8 @@ path.remove(path.size()-1);
         inorder(n);
 
         n = root;
-        ArrayList<Integer> path=new ArrayList<>();
-        printrootleaf(root,path);
+
+        System.out.println(validbst(root, null, null));
     }
 
 }

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class roottoleaf {
+public class bsttobalancedbst {
 
     static class node {
         int data;
@@ -47,18 +47,16 @@ public class roottoleaf {
 
     }
 
-    public static void printrootleaf(node root,ArrayList<Integer> path){
-        if(root ==null)
-        return ;
-        path.add(root.data);
-        if(root.left==null&&root.right==null){
-           System.out.println(path); 
-        }
-printrootleaf(root.left,path);
-printrootleaf(root.right,path);
-path.remove(path.size()-1);
+    public static node createtree(ArrayList<Integer> arr, int s, int e) {
+        if (s > e)
+            return null;
 
+        int mid = (s + e) / 2;
+        node root = new node((int)arr.get(mid));
+        root.left = createtree(arr, s, mid - 1);
+        root.right = createtree(arr, mid + 1, e);
 
+        return root;
     }
 
     public static void inorder(node root) {
@@ -69,22 +67,29 @@ path.remove(path.size()-1);
         inorder(root.right);
 
     }
+     public static ArrayList  inorderarray(node root,ArrayList<Integer> arr,int i) {
+        if (root == null)
+            return null;
+        inorderarray(root.left,arr,i+1);
+        arr.add(root.data);
+        inorderarray(root.right,arr,i+1);
+return arr;
+    }
 
     public static void main(String args[]) {
-        node root = new node(4);
+         node root = new node(4);
         root.left = new node(2);
         root.right = new node(5);
         root.left.left = new node(1);
         root.left.right = new node(3);
         root.right.right = new node(6);
+        inorder(root);
+        ArrayList<Integer> arr=new ArrayList<>();
+        arr=inorderarray(root, arr, 0);
+         node newroot=createtree(arr, 0, arr.size()-1);
+        System.out.println(arr);
+        inorder(newroot);
 
-        binarytree tree = new binarytree();
-        node n = root;
-        inorder(n);
-
-        n = root;
-        ArrayList<Integer> path=new ArrayList<>();
-        printrootleaf(root,path);
     }
 
 }
