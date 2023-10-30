@@ -2,6 +2,20 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "rogh",
+      "request": "launch",
+      "mainClass": "rogh",
+      "projectName": "DSA_77514479"
+    },
+    {
+      "type": "java",
+      "name": "extra",
+      "request": "launch",
+      "mainClass": "extra",
+      "projectName": "DSA_77514479"
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",

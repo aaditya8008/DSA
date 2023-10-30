@@ -55,7 +55,7 @@ public class bipartitegraph {
         for (int i = 0; i < arr.length; i++) {
             if (color[i] == -1) {
                 q.add(i);
-                color[i] = 0;// yellow
+                color[i] = 0;//yellow
                 while (!q.isEmpty()) {
                     int curr = q.remove();
                     for (int j = 0; j < arr[curr].size(); j++) {
@@ -63,7 +63,7 @@ public class bipartitegraph {
                         if (color[e.des ]== -1) {
                             int nextcol = color[curr] == 0 ? 1 : 0;
                             color[e.des] = nextcol;
-
+ 
                         } else if (color[e.des] == color[curr]) {
                             return false;
                         }

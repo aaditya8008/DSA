@@ -1,54 +1,53 @@
 import java.util.*;
-public class rogh {
-static class node {
-        node arr[] = new node[26];
-        boolean end = false;
-
-        node() {
-            for (int i = 0; i < 26; i++) {
-                arr[i] = null;
-            }
-        }
+public class rogh{
+public static class node{
+    int data;
+    node next;
+    node(int i){
+        data=i;
+        next=null;
     }
-public static node root=new node();
-
-
-public static void insert(String word){
-node curr=root;
-for(int i=0;i<word.length();i++){
-    int idx = word.charAt(i) - 'a';
-    if(curr.arr[idx]==null){
-        curr.arr[idx]=new node();
+};
+public static node top;
+public static void push(int i){
+    node n=new node(i);
+    if(top==null){
+        top=n;
     }
-    curr=curr.arr[idx];
-}
-curr.end=true;
-
-}
-
-public static boolean search (String word){
-node curr=root;
-for(int i=0;i<word.length();i++){
-    int idx = word.charAt(i) - 'a';
-    if(curr.arr[idx]==null){
-       return false;
+    else{
+      n.next=top;
+      top=n;
     }
-    curr=curr.arr[idx];
 }
-return true;
-
+public static int pop(){
+    
+    if(top!=null){
+        int x=top.data;
+        top=top.next;
+        return x;
+    }
+    else{
+        System.out.println("Empty");
+        return -1;
+    }
 }
-
-
-
+public static void show(){
+    node n=top;
+    while(n!=null){
+        System.out.print("->"+n.data);
+        n=n.next;
+    }
+    System.out.println();
+}
 public static void main(String args[]){
-String words[] = { "the", "a", "there", "their", "any", "thee" };
-        for (int i = 0; i < words.length; i++) {
-            insert(words[i]);
-        }
-        System.out.println(search("thee"));
-          System.out.println(search("thor"));
-
+    rogh stack=new rogh();
+    for(int i=0;i<10;i++){
+        stack.push(i);
+    }
+    stack.pop();
+    stack.show();
 }
+
+
 
 }

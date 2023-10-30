@@ -71,7 +71,7 @@ public class dfscycle {
                     return true;
             }
 
-            else if (visit[e.des] && e.des != par) {
+            if (visit[e.des] && e.des != par) {
                 return true;
             }
 
