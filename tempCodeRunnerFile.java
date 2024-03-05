@@ -1,1 +1,1 @@
-ll.loopremoval();
+if(arr[i]>=arr[j]){

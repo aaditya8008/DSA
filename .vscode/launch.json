@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "flightsGraph",
+      "request": "launch",
+      "mainClass": "flightsGraph",
+      "projectName": "DSA_77514479"
+    },
+    {
+      "type": "java",
       "name": "rogh",
       "request": "launch",
       "mainClass": "rogh",
